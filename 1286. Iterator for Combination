@@ -1,0 +1,21 @@
+class CombinationIterator:
+
+    def __init__(self, characters: str, combinationLength: int):
+        self._combs = [''.join(c) for c in combinations(characters,combinationLength)]
+        self._idx = 0
+
+    def next(self) -> str:
+        comb = self._combs[self._idx]
+        self._idx+=1
+        return comb
+        
+
+    def hasNext(self) -> bool:
+        return self._idx < len(self._combs)
+        
+
+
+# Your CombinationIterator object will be instantiated and called as such:
+# obj = CombinationIterator(characters, combinationLength)
+# param_1 = obj.next()
+# param_2 = obj.hasNext()
